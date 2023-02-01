@@ -1,0 +1,44 @@
+{
+    "Users": [
+        {
+            "id": 0,
+            "createDate": "2021-07-04T13:33:03.969Z",
+            "avatar": "https://img2.goodfon.ru/original/1024x768/6/9a/evropeyskaya-koshka-dikiy-kot.jpg",
+            "firstName": "Yurin",
+            "lastName": "Vladislav",
+            "patronymic": "Dmitrievich",
+            "email": "vlad.yurin98@gmail.com",
+            "about": "junior frontend developer"
+        },
+        {
+            "id": 1,
+            "createDate": "2020-07-04T13:33:03.969Z",
+            "avatar": "https://img2.goodfon.ru/original/1024x768/6/9a/evropeyskaya-koshka-dikiy-kot.jpg",
+            "firstName": "Ivanov",
+            "lastName": "Ivan",
+            "patronymic": "Ivanovich",
+            "email": "ivan.ivanov@gmail.com",
+            "about": "junior frontend developer"
+        },
+        {
+            "id": 2,
+            "createDate": "2019-07-04T13:33:03.969Z",
+            "avatar": "https://img2.goodfon.ru/original/1024x768/6/9a/evropeyskaya-koshka-dikiy-kot.jpg",
+            "firstName": "Petrov",
+            "lastName": "Petr",
+            "patronymic": "Petrovich",
+            "email": "petr.petrov@gmail.com",
+            "about": "junior frontend developer"
+        },
+        {
+            "id": 3,
+            "createDate": "2018-07-04T13:33:03.969Z",
+            "avatar": "https://img2.goodfon.ru/original/1024x768/6/9a/evropeyskaya-koshka-dikiy-kot.jpg",
+            "firstName": "Vasiliev",
+            "lastName": "Vasiliy",
+            "patronymic": "Vasilievich",
+            "email": "vasya@gmail.com",
+            "about": "junior frontend developer"
+        }
+    ]
+}
