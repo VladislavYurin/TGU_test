@@ -1,24 +1,30 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import Card from 'react-bootstrap/Card';
 import "./style.css";
 
 export default ({ user }) => {
     const dispatch = useDispatch();
 
-    return <Card style={{ width: '200px' }}>
-        <Card.Img variant="top" src={user.avatar} />
-        <Card.Body>
-            <Card.Title>
+    const cardImg = {
+        backgroundImage: `url("${user.avatar || "https://damion.club/uploads/posts/2022-03/thumbs/1646424666_24-damion-club-p-anime-neon-art-27.jpg"}")`,
+        backgroundSize: "cover",
+        borderTopLeftRadius: "15px",
+        borderTopRightRadius: "15px",
+    }
+
+    return <div className="card">
+        <div style={cardImg}></div>
+        <div>
+            <div>
                 {user.firstName} {user.lastName} {user.patronymic}
-            </Card.Title>
-            <Card.Subtitle>
+            </div>
+            <div>
                 {user.email}
-            </Card.Subtitle>
-            <Card.Text>
+            </div>
+            <div>
                 {user.about}
-            </Card.Text>
-        </Card.Body>
-    </Card>
+            </div>
+        </div>
+    </div >
 
 }
