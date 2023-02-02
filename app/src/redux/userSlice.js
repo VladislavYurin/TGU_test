@@ -36,11 +36,11 @@ export const addUserAsync = createAsyncThunk(
         }
     }
 );
-
+ 
 export const patchUserAsync = createAsyncThunk(
     'users/patchUserAsync',
     async (payload) => {
-        const resp = await fetch(`http://localhost:7000/users/${payload.id}`, {
+        const resp = await fetch(`http://localhost:7000/users/:${payload.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

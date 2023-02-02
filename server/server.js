@@ -74,8 +74,8 @@ app.post('/users', (req, res) => {
 
 app.patch('/users/:id', (req, res) => {
     const id = req.params.id;
-    const index = users.findIndex((user) => users.id == id);
-    if (index < 0) {
+    const index = users.findIndex((user) => user.id == id);
+    if (index > -1) {
         users[index].createDate = req.body.createDate;
         users[index].avatar = req.body.avatar;
         users[index].firstName = req.body.firstName;

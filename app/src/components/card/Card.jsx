@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux';
 import "./style.css";
 import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
 
 export default ({ user }) => {
-    const dispatch = useDispatch();
 
     const cardImg = {
-        backgroundImage: `url("${user.avatar || "https://damion.club/uploads/posts/2022-03/thumbs/1646424666_24-damion-club-p-anime-neon-art-27.jpg"}")`,
+        backgroundImage: `url("${user.avatar}")`,
         backgroundSize: "cover",
         borderTopLeftRadius: "15px",
         borderTopRightRadius: "15px",

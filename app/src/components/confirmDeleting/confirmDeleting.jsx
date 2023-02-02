@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-// import "./style.css";
-import { Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { deleteUserAsync } from '../../redux/userSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 export default ({ id, changeConfirmDeletingPopupActive }) => {
     const nav = useNavigate();

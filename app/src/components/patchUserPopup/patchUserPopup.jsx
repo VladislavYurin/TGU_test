@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-// import "./style.css";
+import  { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { useSelector, useDispatch } from 'react-redux';
+import {  useDispatch } from 'react-redux';
 import { patchUserAsync } from '../../redux/userSlice';
 
 export default ({ changePatchUserPopupActive, id }) => {

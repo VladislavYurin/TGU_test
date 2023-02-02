@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import  { useState } from "react";
 import "./style.css";
 import { Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from 'react-redux';
 import { addUserAsync } from '../../redux/userSlice';
 
 export default ({ changeCreateUserPopupActive }) => {
-    const [value, setValue] = useState('');
 
     const [avatar, setAvatar] = useState('');
     const [firstName, setFirstName] = useState('');

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { Container, Row, Col, ButtonGroup, Button, Carousel } from "react-bootstrap";
+import { useSelector } from 'react-redux';
+import { ButtonGroup, Button } from "react-bootstrap";
 import { deleteUserAsync } from '../redux/userSlice';
 import ConfirmDeleting from "../components/confirmDeleting/confirmDeleting";
 import PatchUserPopup from "../components/patchUserPopup/patchUserPopup";
