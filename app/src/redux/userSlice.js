@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
 
 export const getUsersAsync = createAsyncThunk(
     'users/getUsersAsync',
@@ -38,10 +37,37 @@ export const addUserAsync = createAsyncThunk(
     }
 );
 
+export const patchUserAsync = createAsyncThunk(
+    'users/patchUserAsync',
+    async (payload) => {
+        const resp = await fetch(`http://localhost:7000/users/${payload.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                createDate: payload.createDate,
+                avatar: payload.avatar,
+                firstName: payload.firstName,
+                lastName: payload.lastName,
+                patronymic: payload.patronymic,
+                email: payload.email,
+                about: payload.about,
+            }),
+        });
+
+        if (resp.ok) {
+            const user = await resp.json();
+            return { user };
+        }
+    }
+);
+
+
 export const deleteUserAsync = createAsyncThunk(
     'users/deleteUserAsync',
     async (payload) => {
-        const resp = await fetch(`http://localhost:7000/todos/${payload.id}`, {
+        const resp = await fetch(`http://localhost:7000/users/${payload.id}`, {
             method: 'DELETE',
         });
 
@@ -57,7 +83,7 @@ export const usersSlice = createSlice({
     reducers: {
         addUser: (state, action) => {
             const user = {
-                id: nanoid(),
+                id: Number(Date.now()) + Math.floor(Math.random() * 100),
                 createDate: action.payload.createDate,
                 avatar: action.payload.avatar,
                 firstName: action.payload.firstName,

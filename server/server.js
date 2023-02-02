@@ -3,7 +3,6 @@ const dotenv = require('dotenv');
 const colors = require('colors');
 const cors = require('cors');
 const { json } = require('body-parser');
-const { nanoid } = require('nanoid');
 
 dotenv.config({ path: './config.env' });
 
@@ -14,7 +13,7 @@ app.use(json());
 
 let users = [
     {
-        id: nanoid(),
+        id: Number(Date.now()) + Math.floor(Math.random() * 100),
         createDate: "2021-07-04T13:33:03.969Z",
         avatar: "https://img2.goodfon.ru/original/1024x768/6/9a/evropeyskaya-koshka-dikiy-kot.jpg",
         firstName: "Yurin",
@@ -24,7 +23,7 @@ let users = [
         about: "junior frontend developer"
     },
     {
-        id: nanoid(),
+        id: Number(Date.now()) + Math.floor(Math.random() * 100),
         createDate: "2020-07-04T13:33:03.969Z",
         avatar: "https://img2.goodfon.ru/original/1024x768/6/9a/evropeyskaya-koshka-dikiy-kot.jpg",
         firstName: "Ivanov",
@@ -34,7 +33,7 @@ let users = [
         about: "junior frontend developer"
     },
     {
-        id: nanoid(),
+        id: Number(Date.now()) + Math.floor(Math.random() * 100),
         createDate: "2019-07-04T13:33:03.969Z",
         avatar: "https://img2.goodfon.ru/original/1024x768/6/9a/evropeyskaya-koshka-dikiy-kot.jpg",
         firstName: "Petrov",
@@ -44,7 +43,7 @@ let users = [
         about: "junior frontend developer"
     },
     {
-        id: nanoid(),
+        id: Number(Date.now()) + Math.floor(Math.random() * 100),
         createDate: "2018-07-04T13:33:03.969Z",
         avatar: "https://img2.goodfon.ru/original/1024x768/6/9a/evropeyskaya-koshka-dikiy-kot.jpg",
         firstName: "Vasiliev",
@@ -58,9 +57,8 @@ let users = [
 app.get('/users', (req, res) => res.send(users));
 
 app.post('/users', (req, res) => {
-    const todo = { title: req.body.title, id: nanoid(), completed: false };
     const user = {
-        id: nanoid(),
+        id: Number(Date.now()) + Math.floor(Math.random() * 100),
         createDate: req.body.createDate,
         avatar: req.body.avatar,
         firstName: req.body.firstName,
@@ -74,19 +72,24 @@ app.post('/users', (req, res) => {
     return res.send(user);
 });
 
-app.patch('/user/:id', (req, res) => {
+app.patch('/users/:id', (req, res) => {
     const id = req.params.id;
     const index = users.findIndex((user) => users.id == id);
-    const completed = Boolean(req.body.completed);
-    if (index > -1) {
-        users[index].completed = completed;
+    if (index < 0) {
+        users[index].createDate = req.body.createDate;
+        users[index].avatar = req.body.avatar;
+        users[index].firstName = req.body.firstName;
+        users[index].lastName = req.body.lastName;
+        users[index].patronymic = req.body.patronymic;
+        users[index].email = req.body.email;
+        users[index].about = req.body.about;
     }
     return res.send(users[index]);
 });
 
-app.delete('/user/:id', (req, res) => {
+app.delete('/users/:id', (req, res) => {
     const id = req.params.id;
-    const index = users.findIndex((user) =>user.id == id);
+    const index = users.findIndex((user) => user.id == id);
     if (index > -1) {
         users.splice(index, 1);
     }
